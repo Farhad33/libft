@@ -16,7 +16,7 @@ void	ft_strlen_test(void)
 		size_t a = strlen(inputs[i]);
 		size_t b = ft_strlen(inputs[i]);
 		char *test = a == b ? "\x1B[32mPASS" : "\x1B[31mFAIL";
-		printf("%2d: %-12s - %12zu - %12zu - %-s\x1B[0m\n", i + 1, inputs[i], a, b, test);
+		printf("%2d: %12s - %12zu - %12zu - %-s\x1B[0m\n", i + 1, inputs[i], a, b, test);
 		i++;
 	}
 }
