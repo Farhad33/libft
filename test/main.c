@@ -11,6 +11,12 @@ int		main(void)
 	ft_strcat_test();
 	ft_strncat_test();
 	ft_strlcat_test();
+	ft_strdup_test();
+	ft_atoi_test();
+	ft_bzero_test();
+	ft_memset_test();
+	ft_memcpy_test();
+	ft_memccpy_test();
 
 	return (0);
 }

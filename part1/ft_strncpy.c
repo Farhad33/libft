@@ -2,15 +2,15 @@
 
 char	*ft_strncpy(char *dst, char *src, size_t len)
 {
-	int i;
+	char *d;
 
-	i = 0;
-	while(src[i] && len)
+	d = dst;
+	while(*src && len)
 	{
-		dst[i] = src[i];
-		i++;
+		*d++ = *src++;
 		len--;
 	}
-	dst[i] = '\0';
+	while (len--)
+		*d++ = '\0';
 	return (dst);
 }

@@ -3,17 +3,10 @@ IDIR= libft.h
 
 NAME= libft
 
-SRC= \
-	ft_strlen.c\
-	ft_strcpy.c\
-	ft_strncpy.c\
-	ft_strcat.c\
-	ft_strncat.c\
-	ft_strlcat.c
+SRC= ft*.c
 
 OBJS= *.o
 LIBNAME = libft.a
-# CFILES = $(addprefix ./srcs/, $(addsuffix .c, $(SRC)))
 
 CFLAGS= gcc -Wall -Werror -Wextra
 RM= /bin/rm -f
@@ -24,7 +17,6 @@ $(NAME):
 	$(CFLAGS) -c $(SRC) -I$(IDIR)
 	ar rc $(LIBNAME) $(OBJS)
 	ranlib $(LIBNAME)
-	# $(CFLAGS) main.c -I$(IDIR) -L. -llibft -o $(NAME) -g
 
 clean:
 	$(RM) $(OBJS)
