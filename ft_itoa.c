@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_negative(int *len, int *neg, int *n)
+static void	ft_negative(int *len, int *neg, int *n)
 {
 	if (*n < 0)
 	{
@@ -22,7 +22,7 @@ void	ft_negative(int *len, int *neg, int *n)
 	}
 }
 
-void	ft_copystr(int *len, int *neg, char *str, int *n)
+static void	ft_copystr(int *len, int *neg, char *str, int *n)
 {
 	while (*len >= 0)
 	{
@@ -35,7 +35,7 @@ void	ft_copystr(int *len, int *neg, char *str, int *n)
 	}
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		len;
 	int		neg;

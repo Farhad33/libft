@@ -21,7 +21,6 @@ char	*ft_strstr(char *big, char *little)
 	index = 0;
 	match = 0;
 	length = 0;
-
 	length = ft_strlen(little);
 	if (length == 0)
 		return (big);

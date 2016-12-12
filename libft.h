@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/12 01:48:45 by marahimi          #+#    #+#             */
+/*   Updated: 2016/12/12 01:49:17 by marahimi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -6,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-// part 2
+
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putnbr(int nb);
@@ -31,8 +42,6 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 char	*ft_itoa(int n);
-
-// part 1
 size_t	ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, char *src);
 char	*ft_strncpy(char *dst, char *src, size_t len);
@@ -45,7 +54,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, void *src, size_t n);
 void	*ft_memccpy(void *dst, void *src, int c, size_t n);
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(char *s, int c);
 char	*ft_strstr(char *big, char *little);
 char	*ft_strnstr(char *big, char *little, size_t n);
@@ -60,5 +69,6 @@ int		ft_strncmp(char *s1, char *s2, size_t n);
 void	*ft_memmove(void *dest, void *src, size_t n);
 void	*ft_memchr(void *s, int c, size_t n);
 int		ft_memcmp(void *s1, void *s2, size_t n);
+int		ft_isprint(int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 00:07:23 by marahimi          #+#    #+#             */
-/*   Updated: 2016/12/11 00:07:24 by marahimi         ###   ########.fr       */
+/*   Updated: 2016/12/12 01:53:35 by marahimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-    size_t i;
+	size_t i;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

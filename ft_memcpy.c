@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 
 	d = dst;
 	s = src;
-	if((s == d) || !n)
+	if ((s == d) || !n)
 		return (dst);
 	while (n--)
 		*d++ = *s++;

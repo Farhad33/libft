@@ -6,7 +6,7 @@
 /*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 00:13:31 by marahimi          #+#    #+#             */
-/*   Updated: 2016/12/11 00:13:35 by marahimi         ###   ########.fr       */
+/*   Updated: 2016/12/12 01:55:23 by marahimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s)
 	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
 		start++;
 	if (start >= end)
-		return "";
+		return ("");
 	str = (char *)malloc(end - start + 2);
 	if (!str)
 		return (0);

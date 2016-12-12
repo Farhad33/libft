@@ -14,27 +14,29 @@
 
 char	*ft_strnstr(char *big, char *little, size_t n)
 {
-	int index;
-	int match;
-	int length;
+	size_t index;
+	size_t match;
+	size_t length;
+	size_t nn;
+	size_t i;
 
 	index = 0;
-	match = 0;
-	length = ft_strlen(little);
-	if (length == 0)
+	if ((length = ft_strlen(little)) == 0)
 		return (big);
-	while (big[index] && n--)
+	while (big[index] && n)
 	{
-		while (little[match] == big[index])
+		nn = n;
+		i = index;
+		match = 0;
+		while ((little[match] == big[i]) && nn--)
 		{
 			if (match == length - 1)
-				return (big + (index - match));
-			match++;
-			if (little[match] == big[index + 1])
-				index++;
+				return (big + index);
+			if (little[++match] == big[i + 1])
+				i++;
 		}
-		match = 0;
 		index++;
+		n--;
 	}
 	return (0);
 }

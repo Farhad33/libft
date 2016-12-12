@@ -9,7 +9,7 @@ OBJS= *.o
 LIBNAME = libft.a
 
 CFLAGS= gcc -Wall -Werror -Wextra
-RM= /bin/rm -f
+RM= rm -f
 
 all: $(NAME)
 
