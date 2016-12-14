@@ -24,4 +24,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME) $(LIBNAME)
 
-re: fclean all
+re: all fclean

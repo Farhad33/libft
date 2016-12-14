@@ -72,6 +72,7 @@ char			**ft_strsplit(char const *s, char c)
 		return (0);
 	if (!(str = (char **)malloc(sizeof(char*) * (temp + 1))))
 		return (0);
-	str = ft_copy(s, c, str);
+	if (!(str = ft_copy(s, c, str)))
+		return (0);
 	return (str);
 }
