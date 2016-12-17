@@ -46,7 +46,9 @@ static char		**ft_copy(char const *s, char c, char **str)
 	{
 		if (s[i] != c)
 		{
-			if (!(sub = (char *)malloc(ft_count_words(s, c, 1, i) + 1)))
+			if (!(k = ft_count_words(s, c, 1, i)))
+				return (0);
+			if (!(sub = (char *)malloc(k + 1)))
 				return (0);
 			k = 0;
 			while ((s[i] != c) && s[i])
