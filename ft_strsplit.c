@@ -12,22 +12,37 @@
 
 #include "libft.h"
 
-static int		ft_count_words(char const *s, char c, int bol, int i)
+static int		ft_count_words(char const *s, char c)
 {
 	int		j;
+	int		i;
 
+	i = 0;
 	j = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			while ((s[i] != c) && s[i])
+			while (s[i] != c && s[i])
 				i++;
 			j++;
-			if (bol)
-				return (j);
 			i--;
 		}
+		i++;
+	}
+	return (j);
+}
+
+static int		ft_count_word(char const *s, char c, int i)
+{
+	int j;
+
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (j);
+		j++;
 		i++;
 	}
 	return (j);
@@ -46,9 +61,7 @@ static char		**ft_copy(char const *s, char c, char **str)
 	{
 		if (s[i] != c)
 		{
-			if (!(k = ft_count_words(s, c, 1, i)))
-				return (0);
-			if (!(sub = (char *)malloc(k + 1)))
+			if (!(sub = (char *)malloc(ft_count_word(s, c, i) + 1)))
 				return (0);
 			k = 0;
 			while ((s[i] != c) && s[i])
@@ -70,11 +83,13 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (0);
-	if (!(temp = ft_count_words(s, c, 0, 0)))
-		return (0);
+	temp = ft_count_words(s, c);
 	if (!(str = (char **)malloc(sizeof(char*) * (temp + 1))))
 		return (0);
-	if (!(str = ft_copy(s, c, str)))
-		return (0);
-	return (str);
+	if (temp == 0)
+	{
+		str[0] = "\0";
+		return (str);
+	}
+	return (ft_copy(s, c, str));
 }
