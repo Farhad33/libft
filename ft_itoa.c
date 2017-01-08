@@ -24,6 +24,7 @@ static void	ft_negative(int *len, int *neg, int *n)
 
 static void	ft_copystr(int *len, int *neg, char *str, int *n)
 {
+	str[*len] = '\0';
 	while (*len >= 0)
 	{
 		*len = *len - 1;
@@ -42,23 +43,21 @@ char		*ft_itoa(int n)
 	int		temp;
 	char	*str;
 
-	temp = n;
-	len = 0;
+	len = 1;
 	neg = 0;
+	
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	else if (n > 2147483647)
+		return (ft_strdup("-1"));
+	else if (n < -2147483648)
+		return (ft_strdup("0"));
 	ft_negative(&len, &neg, &n);
-	while (temp)
-	{
+	temp = n;
+	while ((temp /= 10) > 0)
 		len++;
-		temp /= 10;
-	}
-	if (n == 0)
-		len++;
-	str = (char *)malloc(len + 1);
-	if (!str)
+	if (!(str = (char *)malloc(len + 1)))
 		return (0);
-	str[len] = '\0';
 	ft_copystr(&len, &neg, str, &n);
 	return (str);
 }
