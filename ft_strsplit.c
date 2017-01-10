@@ -21,7 +21,7 @@ static int		ft_count_words(char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c && s[i])
 		{
 			while (s[i] != c && s[i])
 				i++;
@@ -88,7 +88,7 @@ char			**ft_strsplit(char const *s, char c)
 		return (0);
 	if (temp == 0)
 	{
-		str[0] = "\0";
+		str[0] = NULL;
 		return (str);
 	}
 	return (ft_copy(s, c, str));

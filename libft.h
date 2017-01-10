@@ -84,5 +84,6 @@ void				*ft_memmove(void *dest, void *src, size_t n);
 void				*ft_memchr(void *s, int c, size_t n);
 int					ft_memcmp(void *s1, void *s2, size_t n);
 int					ft_isprint(int c);
+int					ft_isspace(int c);
 
 #endif

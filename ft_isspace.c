@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/09 19:44:20 by marahimi          #+#    #+#             */
-/*   Updated: 2017/01/09 19:44:22 by marahimi         ###   ########.fr       */
+/*   Created: 2017/01/09 19:41:53 by marahimi          #+#    #+#             */
+/*   Updated: 2017/01/09 19:41:55 by marahimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+int		ft_isspace(int c)
 {
-	t_list	*new;
-
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (0);
-	if (!content)
+	if (c == ' ' ||
+		c == '\r' ||
+		c == '\f' ||
+		c == '\t' ||
+		c == '\v' ||
+		c == '\n')
 	{
-		new->content_size = 0;
-		new->content = NULL;
-		return (new);
+		return (1);
 	}
-	if (!(new->content = malloc(content_size)))
-	{
-		free(new);
-		return (0);
-	}
-	ft_memcpy(new->content, content, content_size);
-	new->content_size = content_size;
-	new->next = NULL;
-	return (new);
+	return (0);
 }
