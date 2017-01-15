@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_copy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 00:13:31 by marahimi          #+#    #+#             */
-/*   Updated: 2016/12/12 01:55:23 by marahimi         ###   ########.fr       */
+/*   Created: 2017/01/14 16:27:13 by marahimi          #+#    #+#             */
+/*   Updated: 2017/01/14 16:27:17 by marahimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	**ft_copy(char const *s, char c, char **str)
 {
-	int		start;
-	int		end;
 	int		i;
-	char	*str;
+	int		j;
+	int		k;
+	char	*sub;
 
-	if (!s)
-		return (0);
 	i = 0;
-	start = 0;
-	end = ft_strlen(s) - 1;
-	while (s[end] == ' ' || s[end] == '\n' || s[end] == '\t')
-		end--;
-	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
-		start++;
-	if (start > end)
-		return (ft_strdup(""));
-	if (!(str = (char *)malloc(sizeof(char) * (end - start + 2))))
-		return (0);
-	while (start <= end)
-		str[i++] = s[start++];
-	str[i] = '\0';
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			if (!(sub = (char *)malloc(ft_count_word(s, c, i) + 1)))
+				return (0);
+			k = 0;
+			while ((s[i] != c) && s[i])
+				sub[k++] = s[i++];
+			sub[k] = '\0';
+			str[j++] = sub;
+			i--;
+		}
+		i++;
+	}
+	str[j] = 0;
 	return (str);
 }

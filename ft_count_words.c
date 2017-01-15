@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marahimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 00:12:41 by marahimi          #+#    #+#             */
-/*   Updated: 2016/12/11 00:12:44 by marahimi         ###   ########.fr       */
+/*   Created: 2017/01/14 16:24:05 by marahimi          #+#    #+#             */
+/*   Updated: 2017/01/14 16:24:07 by marahimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+int		ft_count_words(char const *s, char c)
 {
-	int		temp;
-	char	**str;
+	int		j;
+	int		i;
 
-	if (!s)
-		return (0);
-	temp = ft_count_words(s, c);
-	if (!(str = (char **)malloc(sizeof(char*) * (temp + 1))))
-		return (0);
-	if (temp == 0)
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		str[0] = NULL;
-		return (str);
+		if (s[i] != c && s[i])
+		{
+			while (s[i] != c && s[i])
+				i++;
+			j++;
+			i--;
+		}
+		i++;
 	}
-	return (ft_copy(s, c, str));
+	return (j);
 }
